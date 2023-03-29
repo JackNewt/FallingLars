@@ -23,8 +23,10 @@ func physics_process(_delta):
 		if player.direction != prev_direction:
 			player.velocity.x = 0
 			prev_direction = player.direction
-		player.velocity += player.move_speed * player.move_vector()
-		player.move_and_slide(player.velocity, Vector2.UP)
+			player.move_and_slide(player.velocity, Vector2.UP)
+		else:
+			player.velocity += player.move_speed * player.move_vector()
+			player.move_and_slide(player.velocity, Vector2.UP)
 	else:
 		player.velocity = Vector2.ZERO
 		SM.set_state("Idle")

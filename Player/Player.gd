@@ -24,6 +24,7 @@ var should_direction_flip = true # wether or not player controls (left/right) ca
 
 
 func _physics_process(_delta):
+
 	velocity.x = clamp(velocity.x,-max_move,max_move)
 	$AnimatedSprite2.animation = $AnimatedSprite.animation
 	$AnimatedSprite2.flip_h = $AnimatedSprite.flip_h
@@ -48,6 +49,12 @@ func _unhandled_input(event):
 		direction = -1
 	if event.is_action_pressed("right"):
 		direction = 1
+	if event.is_action("run"):
+		max_move = 500
+		if $AnimatedSprite.animation == "Moving":
+			$AnimatedSprite.animation = "Running"
+	else:
+		max_move = 250
 
 func set_animation(anim):
 	if $AnimatedSprite.animation == anim: return
@@ -63,3 +70,4 @@ func die():
 func _on_Coin_Collector_body_entered(body):
 	if body.name == "Coins":
 		body.get_coin(global_position)
+
