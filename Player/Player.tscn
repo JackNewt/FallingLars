@@ -150,14 +150,13 @@ position = Vector2( -7.5, 0 )
 scale = Vector2( 0.04, 0.04 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 3
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.04, 0.04 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
